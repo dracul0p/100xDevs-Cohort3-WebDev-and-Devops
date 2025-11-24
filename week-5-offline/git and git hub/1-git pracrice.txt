@@ -1,0 +1,233 @@
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev
+$ cd start_html_css/
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css
+$ ls
+app1/  app2/
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css
+$ git init
+Initialized empty Git repository in D:/notes/100Xdev/start_html_css/.git/
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ ls
+app1/  app2/
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ ls -la
+total 12
+drwxr-xr-x 1 VICTUS 197121    0 Nov 23 04:31 ./
+drwxr-xr-x 1 VICTUS 197121    0 Nov 23 04:11 ../
+-rw-r--r-- 1 VICTUS 197121 6148 Nov  4 21:50 .DS_Store
+drwxr-xr-x 1 VICTUS 197121    0 Nov 23 04:31 .git/
+drwxr-xr-x 1 VICTUS 197121    0 Nov  6 01:26 app1/
+drwxr-xr-x 1 VICTUS 197121    0 Nov  4 21:51 app2/
+
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ git status
+On branch master
+
+No commits yet
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        .DS_Store
+        app1/
+        app2/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ git add .
+
+warning: in the working copy of 'app1/index.html', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app1/styles.css', LF will be replaced by CRLF the next time Git touches it
+warning: in the working copy of 'app2/styles.css', LF will be replaced by CRLF the next time Git touches it
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .DS_Store
+        new file:   app1/images/features.jpg
+        new file:   app1/images/formimage.jpg
+        new file:   app1/images/hero.jpg
+        new file:   app1/images/logo.png
+        new file:   app1/images/program1.jpg
+        new file:   app1/images/program2.jpg
+        new file:   app1/images/program3.jpg
+        new file:   app1/images/video.jpg
+        new file:   app1/index.html
+        new file:   app1/index.js
+        new file:   app1/styles.css
+        new file:   app2/.DS_Store
+        new file:   app2/images/image1.jpg
+        new file:   app2/images/image10.jpg
+        new file:   app2/images/image11.jpg
+        new file:   app2/images/image12.jpg
+        new file:   app2/images/image13.jpg
+        new file:   app2/images/image14.jpg
+        new file:   app2/images/image15.jpg
+        new file:   app2/images/image16.jpg
+        new file:   app2/images/image17.jpg
+        new file:   app2/images/image18.jpg
+        new file:   app2/images/image19.jpg
+        new file:   app2/images/image2.jpg
+        new file:   app2/images/image20.jpg
+        new file:   app2/images/image21.jpg
+        new file:   app2/images/image22.jpg
+        new file:   app2/images/image23.jpg
+        new file:   app2/images/image24.jpg
+        new file:   app2/images/image25.jpg
+        new file:   app2/images/image3.jpg
+        new file:   app2/images/image4.jpg
+        new file:   app2/images/image5.jpg
+        new file:   app2/images/image6.jpg
+        new file:   app2/images/image7.jpg
+        new file:   app2/images/image8.jpg
+        new file:   app2/images/image9.jpg
+        new file:   app2/images/main-image.jpg
+        new file:   app2/styles.css
+
+removing app2 form stage or Unstage the entire app2 folder (correct command)
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ git rm --cached -r app2
+rm 'app2/.DS_Store'
+rm 'app2/images/image1.jpg'
+rm 'app2/images/image10.jpg'
+rm 'app2/images/image11.jpg'
+rm 'app2/images/image12.jpg'
+rm 'app2/images/image13.jpg'
+rm 'app2/images/image14.jpg'
+rm 'app2/images/image15.jpg'
+rm 'app2/images/image16.jpg'
+rm 'app2/images/image17.jpg'
+rm 'app2/images/image18.jpg'
+rm 'app2/images/image19.jpg'
+rm 'app2/images/image2.jpg'
+rm 'app2/images/image20.jpg'
+rm 'app2/images/image21.jpg'
+rm 'app2/images/image22.jpg'
+rm 'app2/images/image23.jpg'
+rm 'app2/images/image24.jpg'
+rm 'app2/images/image25.jpg'
+rm 'app2/images/image3.jpg'
+rm 'app2/images/image4.jpg'
+rm 'app2/images/image5.jpg'
+rm 'app2/images/image6.jpg'
+rm 'app2/images/image7.jpg'
+rm 'app2/images/image8.jpg'
+rm 'app2/images/image9.jpg'
+rm 'app2/images/main-image.jpg'
+rm 'app2/styles.css'
+
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ git status
+On branch master
+
+No commits yet
+
+Changes to be committed:
+  (use "git rm --cached <file>..." to unstage)
+        new file:   .DS_Store
+        new file:   app1/images/features.jpg
+        new file:   app1/images/formimage.jpg
+        new file:   app1/images/hero.jpg
+        new file:   app1/images/logo.png
+        new file:   app1/images/program1.jpg
+        new file:   app1/images/program2.jpg
+        new file:   app1/images/program3.jpg
+        new file:   app1/images/video.jpg
+        new file:   app1/index.html
+        new file:   app1/index.js
+        new file:   app1/styles.css
+
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        app2/
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ git commit -m "Initial commit for app1"
+[master (root-commit) d4dea5b] Initial commit for app1
+ 12 files changed, 898 insertions(+)
+ create mode 100644 .DS_Store
+ create mode 100644 app1/images/features.jpg
+ create mode 100644 app1/images/formimage.jpg
+ create mode 100644 app1/images/hero.jpg
+ create mode 100644 app1/images/logo.png
+ create mode 100644 app1/images/program1.jpg
+ create mode 100644 app1/images/program2.jpg
+ create mode 100644 app1/images/program3.jpg
+ create mode 100644 app1/images/video.jpg
+ create mode 100644 app1/index.html
+ create mode 100644 app1/index.js
+ create mode 100644 app1/styles.css
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ git status
+On branch master
+Untracked files:
+  (use "git add <file>..." to include in what will be committed)
+        app2/
+
+nothing added to commit but untracked files present (use "git add" to track)
+
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ git log
+commit d4dea5b815cc57b4e3119ab6f62acb5974af1ef2 (HEAD -> master)
+Author: Asheesh Rawat <asheeshrawat48@gmail.com>
+Date:   Sun Nov 23 04:47:46 2025 +0530
+
+    Initial commit for app1
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ git remote -v
+empty == no remote  repo
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ git remote add origin https://github.com/dracul0p/start_html_css.git
+
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ git remote -v
+origin  https://github.com/dracul0p/start_html_css.git (fetch)
+origin  https://github.com/dracul0p/start_html_css.git (push)
+
+
+You added the remote correctly, but nothing will appear on GitHub until you push your first commit.
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/start_html_css (master)
+$ git push
+fatal: The current branch master has no upstream branch.
+To push the current branch and set the remote as upstream, use
+
+    git push --set-upstream origin master
+
+To have this happen automatically for branches without a tracking
+upstream, see 'push.autoSetupRemote' in 'git help config'.
+
+
+so do this

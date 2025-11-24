@@ -1,0 +1,105 @@
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev
+$ git clone https://github.com/dracul0p/Git-demo.git
+Cloning into 'Git-demo'...
+remote: Enumerating objects: 17, done.
+remote: Counting objects: 100% (17/17), done.
+remote: Compressing objects: 100% (11/11), done.
+remote: Total 17 (delta 0), reused 5 (delta 0), pack-reused 0 (from 0)
+Receiving objects: 100% (17/17), 4.27 KiB | 546.00 KiB/s, done.
+
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev
+$ cd Git-demo/
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ ls
+README.md  index.html  style.css
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ rm index.html
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ ls
+README.md  style.css
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ touch index.html
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ ls
+README.md  index.html  style.css
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ vi README.md
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ vi index.html
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+        modified:   index.html
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git add .
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   README.md
+        modified:   index.html
+
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git commit -m "delted index , update index and readme"
+[main 7b7b55f] delted index , update index and readme
+ 2 files changed, 6 insertions(+), 5 deletions(-)
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git status
+On branch main
+Your branch is ahead of 'origin/main' by 1 commit.
+  (use "git push" to publish your local commits)
+
+nothing to commit, working tree clean
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git remote -v
+origin  https://github.com/dracul0p/Git-demo.git (fetch)
+origin  https://github.com/dracul0p/Git-demo.git (push)
+
+//error : git push origin master  already at origin
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git push origin master
+error: src refspec master does not match any
+error: failed to push some refs to 'https://github.com/dracul0p/Git-demo.git'
+
+
+
+//do this with cloned repo
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git push
+Enumerating objects: 7, done.
+Counting objects: 100% (7/7), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (4/4), done.
+Writing objects: 100% (4/4), 556 bytes | 278.00 KiB/s, done.
+Total 4 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+To https://github.com/dracul0p/Git-demo.git
+   548dd53..7b7b55f  main -> main
+

@@ -1,0 +1,47 @@
+<!--  https://petal-estimate-4e9.notion.site/Headers-b92c5116f5cb44a0afae98ecbb786d46 -->
+
+<!DOCTYPE html>
+<html>
+  <body>
+    <div id="posts"></div>
+    <script>
+      async function fetchPosts() {
+        console.log("before fetch");
+
+        //2 line syntax
+        const res = await fetch("https://jsonplaceholder.typicode.com/posts/1" , {
+          method :GET
+        });
+        const data = await res.json(); 
+
+        console.log(data);
+        console.log("after fetch");
+        document.getElementById("posts").innerHTML = data.title;
+
+        // async await actually waits
+        // before fetch
+        // fetch
+        // after fetch
+      }
+
+      // same as above
+
+      function fetchPosts() {
+        console.log("before fetch");
+        fetch("https://jsonplaceholder.typicode.com/posts/1").then(function (
+          response
+        ) {
+          response.json().then(function (data) {
+            console.log(data);
+            console.log("after fetch");
+            document.getElementById("posts").innerHTML = data.title;
+            // document.getElementById("posts").innerHTML = data.userId;
+            document.getElementById("posts").innerHTML = JSON.stringify(data);  //whole data
+          });
+        });
+      }
+
+      fetchPosts();
+    </script>
+  </body>
+</html>

@@ -1,0 +1,175 @@
+https://chatgpt.com/s/t_691228c0eb2481918f7ab49335d2c3af 
+
+Bash Notes (Easy to Copy)
+ 
+
+Terminal
+A terminal is a window where you type commands. It shows input and output. It only provides the interface.
+
+Shell
+A shell is the program that reads, interprets, and executes the commands you type in the terminal. Examples: Bash, Zsh, Fish.
+
+Bash
+Bash (Bourne Again Shell) is one type of shell. It is the most commonly used shell on Linux and macOS.
+
+Simple Difference
+Terminal = Where you type
+Shell = Who interprets the commands
+Bash = A type of shell (the most common one)
+
+Memory Trick
+Terminal → screen
+Shell → interpreter
+Bash → one popular shell
+
+
+# ✅ **Bash Commands – Table Notes**
+
+| No. | Command   | Meaning / Purpose                                            |
+| --- | --------- | ------------------------------------------------------------ |
+| 1   | `pwd`     | Shows the **Present Working Directory** (your current path). |
+| 2   | `ls`      | Lists **files and folders** in the current directory.        |
+| 3   | `ls -R`   | Shows **subdirectories recursively**.                        |
+| 4   | `ls -t`   | Lists files sorted by **latest modified first**.             |
+| 5   | `ls -l`   | Shows **permissions, size, owner, date modified**.           |
+| 6   | `ls -lt`  | Detailed (`-l`) + time sorted (`-t`).                        |
+| 7   | `ls -la`  | Shows **all files including hidden** (`.` files).            |
+| 8   | `ls -lRa` | Detailed + recursive + all files.                            |
+| 9   | `ls -lr`  | Detailed list in **reverse order**.                          |
+| 10  | `ls -s`   | Shows **file size** in blocks.                               |
+| 11  | `ls *.js` | Shows all files ending with **.js**.                         |
+| 12  | `ls Zoo*` | Shows files starting with **Zoo**.                           |
+| 13  | `ls ..`   | Lists items in the **parent directory**.                     |
+
+---
+
+## ✅ **Navigation Commands**
+
+| No. | Command     | Meaning / Purpose                        |
+| --- | ----------- | ---------------------------------------- |
+| 14  | `cd`        | Go to a directory.                       |
+| 15  | `cd ..`     | Go **one step back** (parent directory). |
+| 16  | `cd ../../` | Go back **two levels**.                  |
+
+---
+
+## ✅ **File Commands**
+
+| No. | Command        | Meaning / Purpose                                      |
+| --- | -------------- | ------------------------------------------------------ |
+| 17  | `touch a.js`   | Creates a **new file**.                                |
+| 18  | `cat a.js`     | Shows file content in terminal.                        |
+| 19  | `cat > a.txt`  | Write to a file (overwrite). Use **Ctrl + D** to save. |
+| 20  | `cat >> a.txt` | Append text to a file.                                 |
+
+---
+
+## ✅ **Directory Commands**
+
+| No. | Command                     | Meaning / Purpose                      |
+| --- | --------------------------- | -------------------------------------- |
+| 21  | `mkdir test`                | Create a **new directory**.            |
+| 22  | `mkdir test && cd test`     | Create directory and **enter inside**. |
+| 23  | `mkdir -p frontend/scripts` | Create nested directories.             |
+
+---
+
+## ✅ **Move, Copy, Delete Commands**
+
+| No. | Command                          | Meaning / Purpose                   |
+| --- | -------------------------------- | ----------------------------------- |
+| 24  | `mv script.js runtime_script.js` | Move or **rename** a file.          |
+| 25  | `mv oldpath newname`             | Move or rename using path.          |
+| 26  | `cp file1 file2`                 | Copy a file.                        |
+| 27  | `cp -r folder1 folder2`          | Copy a **directory** recursively.   |
+| 28  | `rm filename`                    | Delete a file.                      |
+| 29  | `rm -r foldername`               | Delete a **directory recursively**. |
+
+
+Here is a **clean, organized table** for ALL the commands you listed (31–67).
+I grouped them so your revision becomes super easy ✅
+
+---
+
+# ✅ **Permission Commands (chmod)**
+
+| No. | Command                       | Meaning / Purpose                                     |
+| --- | ----------------------------- | ----------------------------------------------------- |
+| 31  | `chmod ugo-rwx filename`      | Remove **all permissions** from user, group, others.  |
+| 31b | `chmod -R ugo-rwx foldername` | Remove all permissions **recursively** from a folder. |
+| 32  | `chmod u+x filename`          | Give **execute** permission to user.                  |
+| 33  | `chmod g+wx filename`         | Give **write + execute** to group.                    |
+| 34  | `chmod u-x filename`          | Remove execute permission from user.                  |
+| 🔢  | 1 = x, 2 = w, 4 = r           | Number → Permission rule.                             |
+| 35  | `chmod 664 foldername`        | User=rw, Group=rw, Others=r.                          |
+
+---
+
+# ✅ **Echo & File Preview Commands**
+
+extra missing: 
+echo $PATH 
+
+
+| No. | Command               | Meaning                             |                               |
+| --- | --------------------- | ----------------------------------- | ----------------------------- |
+| 36  | `echo 'Hello World'`  | Print text in terminal.             |                               |
+| 37  | `head filename`       | View **first 10 lines**.            |                               |
+| 38  | `tail filename`       | View **last 10 lines**.             |                               |
+| 39  | `head -20 filename`   | View first **20 lines**.            |                               |
+| 39b | `tail -20 filename`   | View last **20 lines**.             |                               |
+| 40  | `{tail -n +25 filename| head -n +5}`                        | Custom lines → rows 25 to 30. |      | pipe operator =>   comand1 | command2  : 1 output flows to 2
+| 41  | `wc filename`         | Count **lines, words, characters**. |                               |
+
+---
+
+# ✅ **grep Commands (Search text)**
+
+| No. | Command                         | Meaning                                        |
+| --- | ------------------------------- | ---------------------------------------------- |
+| 42  | `grep "one" filename`           | Show lines containing “one” (case-sensitive).  |
+| 43  | `grep "one" filename  | wc -l`  | Count how many times “one” appears.            |
+| 44  | `grep -c "one" filename`        | Shortcut to count occurrences.                 |
+| 45  | `grep -h "one" filename`        | Search “one” and gives matched line from filename. / case sensitive                  |
+| 46  | `grep -hi "one" filename`       | Case-insensitive search.                                                                                                                                                                                                                        |
+| 47  | `grep -hir "one" directoryname` | Search inside a folder recursively.            |
+| 48  | `grep -hin "one" filename`      | Case-insensitive + show line numbers.          |
+| 49  | `grep -hinw "one" filename`     | Match “one” as **whole word** (One, ONE, one). |
+| 50  | `grep -o "one" filename`        | Print **only matched word** “one”.             |
+| 51  | `grep -w "one" filename`        | Match whole word “one” only.                   |
+| 52  | `history`                       | Show past commands used.                       |
+| 53  | `bash filename`                 | Run a bash script.                             |
+| 54  | `grep "ERROR" filename`         | Show lines containing “ERROR”.                 |
+| 55  | `grep -v "INFO" filename`       | Show lines **NOT** containing INFO.            |
+| 56  | `grep -A 5 ERROR filename`      | Show 5 lines **after** ERROR.                  |
+| 56b | `grep -B 5 ERROR filename`      | Show 5 lines **before** ERROR.                 |
+| 56c | `grep -C 5 ERROR filename`      | Show 5 lines **before & after** ERROR.         |
+
+---
+
+# ✅ **sed Commands (Edit text)**
+
+| No. | Command                                     | Meaning                                            |
+| --- | ------------------------------------------- | -------------------------------------------------- |
+| 57  | `sed -n '/ERROR/ p' filename`               | Print only lines containing ERROR.                 |
+| 58  | `sed 's/ERROR/CRITICAL/' filename`          | Replace first ERROR → CRITICAL per line.           |
+| 59  | `sed -ibackup 's/ERROR/CRITICAL/' filename` | Replace & **create backup**.                       |
+| 60  | `sed '3 s/CRITICAL/VERYCRITICAL/' filename` | Replace in **line 3 only**.                        |
+| 60b | `sed '3,5 s/ERROR/CRITICAL/' filename`      | Replace ERROR in lines **3 to 5**.                 |
+| 60c | `sed -n '3,/ERROR/ p' filename`             | Print from line 3 until first occurrence of ERROR. |
+
+---
+
+# ✅ **awk Commands (Advanced text processing)**
+
+| No. | Command                                                                | Meaning                                               |
+| --- | ---------------------------------------------------------------------- | ----------------------------------------------------- |
+| 61  | `awk '/ERROR/{print $0}' filename`                                     | Print all lines containing ERROR.                     |
+| 62  | `awk '{gsub(/ERROR/, "CRITICAL")}{print}' filename`                    | Replace ERROR → CRITICAL everywhere.                  |
+| 63  | `awk 'BEGIN {print "LOG SUMMARY"} {print} END {print "END"}' filename` | Add header + footer around file.                      |
+| 64  | `awk '{print $1, $2}' filename`                                        | Print **column 1 and 2**.                             |
+| 65  | `awk -F "," '{print $1, $2}' filename`                                 | Print cols 1 & 2 using comma separator.               |
+| 66  | `awk '{count[$2]++} END {print count["ERROR"]}' filename`              | Count how many times “ERROR” appears in **column 2**. |
+| 67  | `awk '{ if ($1 > 1598863888 ) {print $0} }' log.txt`                   | Print rows where **column 1 > 1598863888**.           |
+
+---

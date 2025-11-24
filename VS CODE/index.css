@@ -1,0 +1,57 @@
+body{
+  background-color: #0D1117;
+}
+
+.topLink{
+  color: grey;
+  cursor: pointer;
+  padding-left: 5px;
+}
+
+.language{
+  /* max-width: 1200px; */
+  margin: 60px auto;
+  /* width:90%; */
+  padding: 60px;
+  height:20%;
+  background-color: #06080b;
+}
+
+
+/* Language Style  */
+.language {
+    color: white;
+
+}
+
+.language .container {
+    display: grid;
+    grid-template-columns: 1fr 2fr;
+    column-gap: 2rem;
+    
+}
+
+.language .container p {
+    font-size: 16px;
+    font-weight: 500;
+    line-height: 160%;
+    color: #9ba3b4;
+}
+
+.language .languagePanel {
+    display: grid;
+    grid-template-columns: 1fr 1fr 1fr;
+    padding-inline: 2.5rem;
+}
+
+.languagePanel img {
+    height: 40px;
+    width: auto;
+}
+
+footer {
+    background: #333;
+    color: white;
+    text-align: center;
+    padding: 10px 20px;
+}

@@ -1,0 +1,132 @@
+
+
+Why Git?
+
+Free
+Open source
+Scalable
+Super Fast
+Cheap branching and merging
+
+
+What is GitHub?
+GitHub is a web-based hosting service for git repositories.
+You can use git without Github, but you cannot use GitHub without Git.
+
+
+Local Repository ------------------->
+The Git repository stored on your own computer.
+
+Created using git init or cloned with git clone.
+
+All commits first go to the local repo before going online
+
+
+Push ------------------------------>
+
+Sends your local commits to a remote repository (GitHub).
+
+Command: git push origin main.
+
+Used to upload your changes for others to see
+
+
+Pull ------------------------------->
+Downloads the latest changes from remote to local.
+Also merges those changes into your branch.
+Command: git pull origin main.
+
+
+Basic workflow of Git ---------------->
+Step 1 − You modify a file from the working directory.
+Step 2 − You add these files to the staging area.
+Step 3 − You perform commit operation that moves the files from the staging area. After push operation, it stores the changes permanently to the Git repository
+
+Blob (Binary Large Object) --------->
+
+Blob stores only file content, not filename or folder info.
+
+Each blob has a unique SHA-1 hash.
+
+Git reuses the same blob if the file content doesn’t change.
+
+Tree ---------------------->
+
+Tree represents a directory in Git.
+
+It stores filenames, permissions, and pointers to blobs/other trees.
+
+A commit points to a root tree to represent the whole project snapshot.
+
+Here are **very short 2–3 line notes** on **Commit**:
+
+---
+
+Commit --------------->
+
+A commit is a snapshot of your changes in the repository.
+
+It has a unique SHA-1 hash and a message describing the change.
+
+Stored only in the local repo until you push it to GitHub.
+
+commit obj  think a node of ll .
+every coming has a pointer to parent commmit obj
+
+
+Git Basic Commands (Short Notes) ----------------------------->
+
+git init → Creates a new local repository.
+
+git clone URL → Copies a remote repo to your computer.
+
+git status → Shows changes and current branch state.
+
+git add . → Moves changes to staging area.
+
+git commit -m "msg" → Saves a snapshot of staged changes.
+
+git push → Uploads commits to remote (GitHub).
+
+git pull → Downloads + merges latest changes from remote  to local
+
+git diff → Shows differences in files before committing.
+
+git log → Shows commit history.
+
+
+//windows git bash
+git config --global user.name "Asheesh Rawat"
+
+git config --global user.email "asheeshrawat48@gmail.com"
+
+go to the previous directory
+cd -
+
+
+git init     
+
+De-initialize (Remove Git)
+rm -rf .Git
+
+
+is a listing command in Git Bash / Linux terminals.
+ls -la 
+
+git status
+all untracked files red color
+tracked staged file green
+ 
+git add .   stage all untracked file
+git commit  add screens shot of staged file
+
+$ git commit -ma    short cut add and commit only wroks for existing file change not for new file
+
+
+
+
+
+
+
+
+

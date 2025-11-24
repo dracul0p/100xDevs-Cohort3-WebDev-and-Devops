@@ -1,0 +1,45 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+  <meta charset="UTF-8">
+  <meta name="viewport" content="width=device-width, initial-scale=1.0">
+  <title>Document</title>
+</head>
+<body>
+    <h1 class="title">To do app</h1>
+    <div class="todo">
+
+    </div>
+   <input type="text">
+   <button onclick="addTodo()">Add todo</button>
+   
+</body>
+ <script>
+  
+  let  count = 1;
+
+  function deleteTodo(idx){
+     let element = document.getElementById("todo-"+ idx);
+    //  document.querySelector(".todo").removeChild(element);
+    element.parentNode.removeChild(element);
+
+       
+  }
+
+  function addTodo(){
+    let element = document.querySelector("input");
+    let textNode = document.createElement("div");
+   
+    textNode.setAttribute("id", "todo-"+ count);
+   
+    textNode.innerHTML = "<div>" + element.value + "</div> <button onclick='deleteTodo("+ count +")'>delete</button>";
+
+    let elementParent = document.querySelector(".todo");
+    elementParent.appendChild(textNode);
+   
+    count = count + 1;
+
+  }
+ </script>
+
+</html>

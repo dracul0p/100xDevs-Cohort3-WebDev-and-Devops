@@ -1,0 +1,114 @@
+| Command                | Meaning                  | What It Does                                          |
+| ---------------------- | ------------------------ | ----------------------------------------------------- |
+| `ls`                   | List directory contents  | Shows all files & folders in current directory        |
+| `ls -l`                | Long format              | Shows details: permissions, owner, size, date, time   |
+| `ls -l folder1`        | Long format of a folder  | Shows details of files inside **folder1**             |
+| `ls -t`                | Sort by time             | Sorts files by **newest first**                       |
+| `ls -lt`               | Long listing + time sort | Detailed view sorted by **newest first**              |
+| `ls -R`                | Recursive                | Shows files inside **all subfolders**                 |
+| `ls -lR`               | Recursive long format    | Detailed recursive listing                            |
+| `ls -lRa`              | Long + recursive + all   | Shows **all files (including hidden)** in all folders |
+| `ls -lr`               | Long + reverse order     | Detailed list in **reverse alphabetical** order       |
+| `ls -s`                | Show file sizes          | Shows size of each file in blocks                     |
+| `ls *.json`            | Pattern match            | Shows all files ending with `.json`                   |
+| `ls Zoo*`              | Wildcard match           | Shows all files starting with “Zoo”                   |
+| `ls -lR \| grep .json` | Filter JSON files        | Shows all `.json` files from all subfolders           |
+| `ls ..`                | Parent directory         | Shows files located **one folder up**                 |
+
+
+
+chmod`?**
+
+`chmod` = **change permissions** of a file or folder.
+
+Permissions control **who can read, write, or execute** a file.
+
+---
+
+# ✅ **Permission Letters**
+
+| Letter | Meaning | What It Allows                            |
+| ------ | ------- | ----------------------------------------- |
+| **r**  | Read    | View file contents, list folder           |
+| **w**  | Write   | Modify file, create/delete inside folder  |
+| **x**  | Execute | Run file (scripts/programs), enter folder |
+
+---
+
+# ✅ **User Groups**
+
+| Symbol | Meaning         |
+| ------ | --------------- |
+| **u**  | user (owner)    |
+| **g**  | group           |
+| **o**  | others          |
+| **a**  | all (u + g + o) |
+
+
+
+Add permission → +
+Remove permission → -
+
+
+# ✅ **chmod with Symbols (r, w, x)**
+
+| Command            | Meaning                                   |
+| ------------------ | ----------------------------------------- |
+| `chmod u+r file`   | Give read permission to **user**          |
+| `chmod g+w file`   | Give write permission to **group**        |
+| `chmod o-x file`   | Remove execute permission from **others** |
+| `chmod u+rwx file` | Give all permissions to **user**          |
+| `chmod a+r file`   | Give read permission to **everyone**      |
+
+---
+
+# ✅ **chmod with Numbers**
+
+| Number | Permission | Meaning                |
+| ------ | ---------- | ---------------------- |
+| **0**  | ---        | No permissions         |
+| **1**  | --x        | Execute only           |
+| **2**  | -w-        | Write only             |
+| **4**  | r--        | Read only              |
+| **3**  | -wx        | Write + Execute        |
+| **5**  | r-x        | Read + Execute         |
+| **6**  | rw-        | Read + Write           |
+| **7**  | rwx        | Read + Write + Execute |
+
+---
+
+# ✅ **Full chmod Number Table**
+
+| Command          | Who Gets What       | Meaning                            |
+| ---------------- | ------------------- | ---------------------------------- |
+| `chmod 777 file` | u=rwx, g=rwx, o=rwx | Everyone: read + write + execute   |
+| `chmod 755 file` | u=rwx, g=rx, o=rx   | User: full, others: read + execute |
+| `chmod 700 file` | u=rwx only          | Only owner can use file            |
+| `chmod 644 file` | u=rw, g=r, o=r      | User can edit; others read-only    |
+| `chmod 600 file` | u=rw only           | Private file (password files)      |
+| `chmod 444 file` | Everyone read only  | No editing allowed                 |
+
+---
+
+# ✅ **Quick Meaning**
+
+✅ **1st digit = user**
+✅ **2nd digit = group**
+✅ **3rd digit = others**
+
+Example:
+
+```
+chmod 754 file
+```
+
+Means:
+
+* user: 7 → rwx
+* group: 5 → r-x
+* others: 4 → r--
+
+
+
+
+

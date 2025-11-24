@@ -1,0 +1,177 @@
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git branch
+* main 
+
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git branch feature_update_file
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git branch
+  feature_update_file
+* main
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git checkout feature_update_file
+Switched to branch 'feature_update_file'
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (feature_update_file)
+$ git checkout -b master
+Switched to a new branch 'master'
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (master)
+$ git checkout feature_update_file
+Switched to branch 'feature_update_file'
+
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (feature_update_file)
+$ ls
+README.md  index.html  style.css
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (feature_update_file)
+$ vi README.md
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (feature_update_file)
+$ git status
+On branch feature_update_file
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   README.md
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (feature_update_file)
+$ git add README.md
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (feature_update_file)
+$ git status
+On branch feature_update_file
+Changes to be committed:
+  (use "git restore --staged <file>..." to unstage)
+        modified:   README.md
+
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (feature_update_file)
+$ git commit -m "updated README.md file"
+[feature_update_file 1fbdc55] updated README.md file
+ 1 file changed, 4 insertions(+)
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (feature_update_file)
+$ git status
+On branch feature_update_file
+nothing to commit, working tree clean
+
+
+//check does main has the change made in feature branch ----> no
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (feature_update_file)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ vi README.md
+
+
+mergin feature branch to main 
+
+
+checking diffrence  in both branch  use : diff
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git diff feature_update_file
+diff --git a/README.md b/README.md
+index 598b434..d998399 100644
+--- a/README.md
++++ b/README.md
+@@ -3,7 +3,3 @@ this is a readme file
+ adding new
+ hello
+ hellow worldo           
+-##Development environment
+-
+-make sure you have javascript availabel
+-run index.html in browser
+
+//mergin changes with main
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git merge feature_update_file
+Updating 7b7b55f..1fbdc55
+Fast-forward
+ README.md | 4 ++++
+ 1 file changed, 4 insertions(+)
+
+
+ VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git checkout feature_update_file
+Switched to branch 'feature_update_file'
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (feature_update_file)
+$ git status
+On branch feature_update_file
+nothing to commit, working tree clean
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (feature_update_file)
+$ git push -u origin feature_update_file
+Enumerating objects: 5, done.
+Counting objects: 100% (5/5), done.
+Delta compression using up to 16 threads
+Compressing objects: 100% (3/3), done.
+Writing objects: 100% (3/3), 442 bytes | 442.00 KiB/s, done.
+Total 3 (delta 0), reused 0 (delta 0), pack-reused 0 (from 0)
+remote:
+remote: Create a pull request for 'feature_update_file' on GitHub by visiting:
+remote:      https://github.com/dracul0p/Git-demo/pull/new/feature_update_file
+remote:
+To https://github.com/dracul0p/Git-demo.git
+ * [new branch]      feature_update_file -> feature_update_file
+branch 'feature_update_file' set up to track 'origin/feature_update_file'.
+
+
+
+//deleting branch whose work complete
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git branch -d feature_update_file
+Deleted branch feature_update_file (was 1fbdc55).
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git branch
+* main
+  master
+
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git status
+On branch main
+Your branch is behind 'origin/main' by 3 commits, and can be fast-forwarded.
+  (use "git pull" to update your local branch)
+
+nothing to commit, working tree clean
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git pull
+Updating 1fbdc55..e17d55e
+Fast-forward
+ README.md | 7 ++++++-
+ 1 file changed, 6 insertions(+), 1 deletion(-)
+
+
+
+

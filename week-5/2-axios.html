@@ -1,0 +1,43 @@
+<!DOCTYPE html>
+<html>
+
+<head>
+  <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
+</head>
+
+<body>
+  <p>
+    axios : external library. it is a http client 
+    //used for backgound request
+
+  </p>
+  <div id="posts"></div>
+  <button onclick="fetchPosts1()">Fetch more data</button>
+  <br>
+  <script>
+    async function fetchPosts() {
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts/1");// return 1
+
+      document.getElementById("posts").innerHTML = res.data.title;
+    }
+
+     async function fetchPosts1() {
+      const res = await axios.get("https://jsonplaceholder.typicode.com/posts");  // returns array of obj
+
+      //if axion return array of obj
+      const arr = res.data;
+
+      for(let i= 0; i< arr.length ;i++){
+        document.getElementById("posts").innerHTML += "<div>"+  JSON.stringify(arr[i]) + "</div>" ;
+
+      }
+
+    }
+
+    fetchPosts();
+  </script>
+
+
+</body>
+
+</html>

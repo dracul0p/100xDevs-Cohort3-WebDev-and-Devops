@@ -1,0 +1,149 @@
+///////////////////////////////////////////////////
+solve merge conflict
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git checkout -b hotfix
+Switched to a new branch 'hotfix'
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix)
+$ git branch
+* hotfix
+  main
+  master
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix)
+$ git branch -d master
+Deleted branch master (was 7b7b55f).
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix)
+$ git branch
+* hotfix
+  main
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix)
+$ ls
+README.md  index.html  style.css
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix)
+$ vi index.html
+
+
+//red
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix)
+$ git status
+On branch hotfix
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html     
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+
+
+//add and commit together
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix)
+$ git commit -am "added new line in index.html"
+[hotfix ed35695] added new line in index.html
+ 1 file changed, 2 insertions(+), 1 deletion(-)
+
+
+ VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix)
+$ git checkout main
+Switched to branch 'main'
+Your branch is up to date with 'origin/main'.
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ vi index.html
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ vi index.html
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git checkout hotfix
+error: Your local changes to the following files would be overwritten by checkout:
+        index.html
+Please commit your changes or stash them before you switch branches.
+Aborting
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git status
+On branch main
+Your branch is up to date with 'origin/main'.
+
+Changes not staged for commit:
+  (use "git add <file>..." to update what will be committed)
+  (use "git restore <file>..." to discard changes in working directory)
+        modified:   index.html
+
+no changes added to commit (use "git add" and/or "git commit -a")
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git commit -am "added new line in index.html"
+[main 3b63996] added new line in index.html
+ 1 file changed, 3 insertions(+), 1 deletion(-)
+
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (main)
+$ git checkout hotfix
+Switched to branch 'hotfix'
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix)
+$ git diff main
+diff --git a/index.html b/index.html
+index 47f79cf..1e6b87b 100644
+--- a/index.html
++++ b/index.html
+@@ -6,8 +6,7 @@
+   <title>Document</title>
+ </head>
+ <body>
+-    <p>i i love you</p>
+-    <p>Hotfix change on main</p>
+-
++       <p>hi i love you</p>
++       <p>hotfix</p>
+ </body>
+ </html>
+
+
+///conflict
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix)
+$ git merge main
+Auto-merging index.html
+CONFLICT (content): Merge conflict in index.html
+Automatic merge failed; fix conflicts and then commit the result.
+
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix|MERGING)
+$ vi index.html
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix|MERGING)
+$ git diff main
+diff --git a/index.html b/index.html
+index 47f79cf..088d6c6 100644
+--- a/index.html
++++ b/index.html
+@@ -6,8 +6,12 @@
+   <title>Document</title>
+ </head>
+ <body>
+-    <p>i i love you</p>
+-    <p>Hotfix change on main</p>
++
++       <p>hi i love you</p>
++       <p>hotfix</p>
++        <p>i i love you</p>
++        <p>Hotfix change on main</p>
+
++
+ </body>
+ </html>
+
+VICTUS@LAPTOP-GPHBNU60 MINGW64 /d/notes/100Xdev/Git-demo (hotfix|MERGING)
+$ git commit -am "solved merge conflict"
+[hotfix 35162c2] solved merge conflict

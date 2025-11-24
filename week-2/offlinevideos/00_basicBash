@@ -1,0 +1,60 @@
+. Bash and Terminals (Basics)
+Terminal:
+Terminal is nothing but another interface to do things on your machine.
+
+pwd: Print Working Directory
+
+$ pwd
+cd: Change Directory
+
+$ cd Desktop
+$ cd ../
+$ cd Desktop/screenshots
+$ cd ../..
+ls: Listing all the files and folders in your current folder.
+
+$ ls
+mkdir: Create new folder
+
+$ mkdir test
+touch: Create new empty file
+
+$ touch index.js
+cat: Prints contents of the file
+
+$ cat index.js
+$ cat test/index.js
+vi: Vim Editor
+
+$ vi index.text
+
+Press `i` for insert mode and write anything in your file
+
+Bharat
+Kumar
+a
+ab
+
+Esc + :q! to exit from Vim Editor without saving the file
+Esc + :wq! to exit from Vim Editor with saving the file
+mv: Move the file or folders
+
+$ mv index.js new-folder
+$ mv folder1 folder2
+cp: Copy the files or folders
+
+$ cp index.js new-folder
+$ cp -r folder1 folder2
+clear: Clear the terminal
+
+$ clear
+nvm: Node Version Manager - Using this you can install node.
+
+npm: Node Package Manager
+
+$ npm install express
+$ npm install array
+node: Use to run file.
+
+$ node index.js
+git:

@@ -1,0 +1,37 @@
+<!DOCTYPE html>
+<html lang="en">
+  <head>
+    <meta charset="UTF-8" />
+    <meta name="viewport" content="width=device-width, initial-scale=1.0" />
+    <title>Document</title>
+    <script src="https://cdnjs.cloudflare.com/ajax/libs/axios/1.7.6/axios.min.js"></script>
+  </head>
+  <body>
+    <!-- server cros.html over http 
+
+    1. server folder over http:
+    public folder ---- cros.html   cd public npx serve
+   -->
+
+    <!-- hosting front end anf backend at same origin no cros -->
+
+    <div>
+      <input type="text" id="a" placeholder="first value" />
+      <input type="text" id="b" placeholder="second value" />
+      <button onclick="sendReq()">find sum</button>
+    </div>
+
+    <script>
+      async function sendReq() {
+        // alert("hi");
+        const a = document.getElementById("a").value;
+        const b = document.getElementById("b").value;
+        const res = await axios.post("http://localhost:3000/sum", {
+          a: a,
+          b: b,
+        });
+        console.log(res.data);
+      }
+    </script>
+  </body>
+</html>
