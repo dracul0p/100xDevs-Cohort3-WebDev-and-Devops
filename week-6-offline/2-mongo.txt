@@ -1,0 +1,6 @@
+asheesh2025
+l2tpFhnnYCHI3dhV 
+
+mongodb+srv://Asheesh2025:l2tpFhnnYCHI3dhV@cluster0.etwnv86.mongodb.net/testDB?retryWrites=true&w=majority
+
+mongodb+srv://Asheesh2025:l2tpFhnnYCHI3dhV@cluster0.etwnv86.mongodb.net/
