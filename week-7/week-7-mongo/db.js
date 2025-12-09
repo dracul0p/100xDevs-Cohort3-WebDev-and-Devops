@@ -9,6 +9,7 @@ const User = new Schema({
   password: String
 });
 
+
 const Todo = new Schema({
     userId: ObjectId,
     title: String,

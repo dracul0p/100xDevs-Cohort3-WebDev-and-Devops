@@ -6,7 +6,7 @@ function auth(req, res, next) {
     
     const token = req.headers.token;
   
-    console.log(token);
+    // console.log(token);
 
 
     const response = jwt.verify(token, JWT_SECRET);

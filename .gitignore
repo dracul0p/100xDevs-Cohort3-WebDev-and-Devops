@@ -1,6 +1,6 @@
 node_modules/
 
 #  echo "week-8/" >> .gitignore | simply adds the line week-8/ at the end of your .gitignore file.
-week-8/ 
+#week-8/ 
 
 
