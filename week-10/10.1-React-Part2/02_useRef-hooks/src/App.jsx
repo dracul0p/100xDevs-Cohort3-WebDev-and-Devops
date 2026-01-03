@@ -6,31 +6,49 @@ import { useState, useRef } from "react";
 function App() {
   const [currentCount, setCurrentCount] = useState(1);
 
-  const [timer , setTimer] = useState(0);
-
-  // let timer = 0;
+  //wrong approach
+  // let timer = 0; 
   //bad approach dont do this
 
   // function startClock() {
   //   timer = setInterval(() => setCurrentCount((c) => c + 1), 1000);
+  // }
+
+  //  function stopClock() {
+  //   clearInterval(timer);
+  // }
+
+
+  //worst approach : extra re-rendring 
+  // const [timer, setTimer] = useState(0);
+  // function startClock() {
+  //   let value = setInterval(() => setCurrentCount((c) => c + 1), 1000);
   //   setTimer(value);
   // }
 
-    function startClock() {
+  // function stopClock() {
+  //   clearInterval(timer);
+  // }
+
+  const timer = useRef();
+
+  function startClock() {
     let value = setInterval(() => setCurrentCount((c) => c + 1), 1000);
-    setTimer(value);
+    timer.current = value;
   }
 
-  function stopClock() { 
-    clearInterval(timer);
+  function stopClock() {
+    clearInterval(timer.current);
   }
+
+
 
   return (
     <div>
       {currentCount}
       <br />
       <button onClick={startClock}>Start</button>
-      <button>Stop</button>
+      <button onClick={stopClock}>Stop</button>
     </div>
   );
 }
