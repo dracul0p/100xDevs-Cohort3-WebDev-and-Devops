@@ -3,47 +3,26 @@
 // context API helps to avoid "prop drilling"
 
 
-// creating own provider
-import { useState, createContext, useContext } from "react";
+// import { useState, createContext, useContext } from "react";
 
 // step1 : create context
 const bulbContext = createContext();
 
-function BulbProvider({ children }) {
+function App() {
   const [bulbOn, setBulbOn] = useState(true);
 
-  return (
-    <bulbContext.Provider
-      value={{
-        bulbOn: bulbOn,
-        setBulbOn: setBulbOn,
-      }}
-    >
-      {children}
-    </bulbContext.Provider>
-  );
-}
-
-function App() {
   return (
     <div>
       {/* step 2: provide context value that childrens should have  */}
 
-      {/* <bulbContext.Provide
+      <bulbContext.Provider
         value={{
           bulbOn: bulbOn,
           setBulbOn: setBulbOn,
         }}
       >
         <Light />
-      </bulbContext.Provide> */}
-
-      {/* same as above but with custom provider */}
-
-      <BulbProvider>
-        {/*light here is childeren prop */}
-        <Light />
-      </BulbProvider>
+      </bulbContext.Provider>
     </div>
   );
 }
