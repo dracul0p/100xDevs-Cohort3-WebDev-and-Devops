@@ -38,7 +38,7 @@ function Increase() {
   const { count, setCount } = useContext(CountContext);
 
   // Render a button to increase the count
-  return <button onClick={() => setCount(count + 1)}>Increase</button>;
+  return <button onClick={() => setCount(count => count + 1)}>Increase</button>;
 }
 
 function Decrease() {
@@ -46,7 +46,7 @@ function Decrease() {
   const { count, setCount } = useContext(CountContext);
 
   // Render a button to decrease the count
-  return <button onClick={() => setCount(count - 1)}>Decrease</button>;
+  return <button onClick={() => setCount(count  => count - 1)}>Decrease</button>;
 }
 
 function Value() {

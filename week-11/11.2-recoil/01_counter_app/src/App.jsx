@@ -29,7 +29,7 @@ function Counter() {
 function Increase({ setCount, count }) {
   return (
     <div>
-      <button onClick={() => setCount(count + 1)}>Increase</button>
+      <button onClick={() => setCount((count) => count + 1)}>Increase</button>
     </div>
   );
 }
@@ -37,7 +37,7 @@ function Increase({ setCount, count }) {
 function Decrease({ setCount, count }) {
   return (
     <div>
-      <button onClick={() => setCount(count - 1)}>Decrease</button>
+      <button onClick={() => setCount((count) => count - 1)}>Decrease</button>
     </div>
   );
 }
