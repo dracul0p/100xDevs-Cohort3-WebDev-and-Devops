@@ -3,7 +3,7 @@
 // context API helps to avoid "prop drilling"
 
 
-// import { useState, createContext, useContext } from "react";
+import { useState, createContext, useContext } from "react";
 
 // step1 : create context
 const bulbContext = createContext();
