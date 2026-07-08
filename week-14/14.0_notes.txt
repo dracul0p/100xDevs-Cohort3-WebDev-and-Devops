@@ -1,0 +1,138 @@
+If TypeScript is **already installed globally**, the process is almost the same, except you don't need to install TypeScript in the project.
+
+## 1. Create project
+
+```bash
+mkdir my-project
+cd my-project
+```
+
+## 2. Initialize npm
+
+```bash
+npm init -y
+```
+
+## 3. Verify TypeScript is installed globally
+
+```bash
+tsc --version
+```
+
+Example output:
+
+```text
+Version 5.9.2
+```
+
+## 4. Create tsconfig.json
+
+```bash
+tsc --init
+```
+
+This creates:
+
+```text
+tsconfig.json
+```
+
+## 5. Create folders
+
+```text
+my-project/
+│
+├── src/
+│   └── index.ts
+│
+├── dist/
+│
+├── package.json
+└── tsconfig.json
+```
+
+## 6. Configure tsconfig.json
+
+```json
+{
+  "compilerOptions": {
+    "target": "ES2020",
+    "module": "CommonJS",
+    "rootDir": "./src",
+    "outDir": "./dist",
+    "strict": true
+  }
+}
+```
+
+## 7. Write TypeScript code
+
+`src/index.ts`
+
+```ts
+const message: string = "Hello TypeScript";
+
+console.log(message);
+```
+
+## 8. Compile
+
+```bash
+tsc
+```
+
+This generates:
+
+```text
+dist/index.js
+```
+
+## 9. Run
+
+```bash
+node dist/index.js
+```
+
+Output:
+
+```text
+Hello TypeScript
+```
+
+---
+
+### Quick workflow
+
+```text
+src/index.ts
+      ↓
+tsc
+      ↓
+dist/index.js
+      ↓
+node dist/index.js
+```
+
+### Check where global TypeScript is installed
+
+Windows:
+
+```bash
+where tsc
+```
+
+Linux/Mac:
+
+```bash
+which tsc
+```
+
+### In real projects
+
+Even if TypeScript is installed globally, most teams still run:
+
+```bash
+npm install typescript --save-dev
+```
+
+inside the project so everyone uses the same TypeScript version. Global installation is convenient for learning and personal projects, but local installation is preferred for professional projects.

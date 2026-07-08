@@ -18,13 +18,11 @@ let user : UserI =  {
 }
 
 console.log(isLegal(user));
-;
 
 // type SumInput = string | number ;
 // function sum(a:SumInput , b: SumInput){
 //   return a + b; 
 // }
-
 
 type Employee = {
   name: string;
@@ -36,6 +34,7 @@ type Manager = {
   department: string;
 };
 
+// 2. Intersection
 type TeamLead = Employee & Manager;
 
 const teamLead: TeamLead = {
@@ -46,3 +45,15 @@ const teamLead: TeamLead = {
 
 
 console.log(teamLead);
+
+// type let u do ------------------>
+// union 
+// interection
+
+type StringOrNumber = string | number ;
+function sum(a : StringOrNumber , b : StringOrNumber){
+  return a + b ;
+}
+
+sum(1,2); // 3
+

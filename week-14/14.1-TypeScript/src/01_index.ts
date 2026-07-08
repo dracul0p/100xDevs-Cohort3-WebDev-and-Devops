@@ -1,5 +1,7 @@
 //notes :  https://projects.100xdevs.com/tracks/6SbPPXGkG8QKFOTW9BmL/ts-1
 
+
+//type inferencing
 let x :number = 1 ;
 // x="ass";  // error
 console.log(x);
@@ -12,7 +14,6 @@ console.log(x);
 
 function greetings( firstName : string | number){
   console.log("hellow" , firstName);
-  
 }
 
 greetings( "asheesh" );
@@ -42,8 +43,6 @@ console.log(ans);
 
 
 
-
-
 function sumN(a: string  , b :number){
  return a + b;
    
@@ -56,7 +55,7 @@ console.log(curr);
 // fun to another fn as input : and type of argument.
 /*
 function delayedCall(fn: () => void) {
-    setTimeout(fn, 1000);
+  setTimeout(fn, 1000);
 }
 
 delayedCall(function() {
@@ -96,7 +95,6 @@ function delayedCall1(fn: (a:string) => void ) {
 
 function greet(name : string) {
   console.log("hello " + name );
-  
 }
 
 delayedCall1(greet);
@@ -133,7 +131,7 @@ goodi(user);
 type UserType = {
   firstname : string ,
   lastname : string ,
-   age : number
+  age : number
 }
 
 interface UserTypeI {
@@ -160,14 +158,13 @@ fn3(user2);
 function fn2(user : UserType){
   console.log(user.firstname);
   console.log(user.lastname);
-
-  
 }
 
 
 function fn3(user : UserTypeI){
   console.log(user.firstname);
   console.log(user.lastname);
-
-  
 }
+
+
+

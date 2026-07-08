@@ -12,11 +12,14 @@
     "types": [],
     "rootDir":"./src",
      "outDir":"./dist",
+
     // For nodejs:
     // "lib": ["esnext"],
     // "types": ["node"],
     // and npm install -D @types/node
-
+   
+    "esModuleInterop": true,
+    
     // Other Outputs
     "sourceMap": true,
     "declaration": true,
