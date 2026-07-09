@@ -1,0 +1,19 @@
+html,
+body,
+#root {
+  margin: 0;
+  height: 100%;
+  background-color: black;
+}
+
+.container {
+  height: 100vh;
+  display: flex;
+  justify-content: center;
+  align-items: center;
+}
+
+.input-group {
+  display: flex;
+  gap: 10px;
+}
