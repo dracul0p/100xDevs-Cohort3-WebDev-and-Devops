@@ -11,28 +11,55 @@ interface User {
   room: string;
 }
 
+// [
+//   { socket: "add", room: 123 },
+//   { socket: "xyz", room: 323 },
+// ];
+
 let userCount = 0;
-let allSockets: WebSocket[] = [];
+let allSockets: User[] = [];
 
 // Listen for new WebSocket connections
 wss.on("connection", (socket) => {
-  allSockets.push(socket);
   userCount += 1;
   console.log("user connecte #" + userCount);
 
+  // Handle 'join' message type - when a user wants to join a room
   socket.on("message", (message) => {
-    log("Message received: " + message.toString());
+    // Parse the incoming message from JSON string to object
+    // @ts-ignore is used to bypass TypeScript type checking for the JSON.parse
+    const parsedMessage = JSON.parse(message);
 
-    for (let i = 0; i < allSockets.length; i++) {
-      const s = allSockets[i];
-      //@ts-ignore
-      s.send(message.toString() + " server from server");
+    if (parsedMessage.type === "join") {
+      // Add the new user to allSockets array with their socket and requested room
+      allSockets.push({
+        socket,
+        room: parsedMessage.payload.roomId,
+      });
+    }
+
+    // Handle 'chat' message type - when a user sends a chat message
+    if (parsedMessage.type === "chat") {
+      // Find the room of the user who sent the message
+      const user = allSockets.find((x) => x.socket === socket);
+      if (!user) {
+        return;
+      }
+      const currentUserRoom = user.room;
+
+      // Broadcast the message to all users in the same room
+      for (let i = 0; i < allSockets.length; i++) {
+        if (allSockets[i].room === currentUserRoom) {
+          allSockets[i]?.socket.send(parsedMessage.payload.message);
+        }
+      }
     }
   });
 
   socket.on("close", () => {
     userCount -= 1;
     console.log("user disconnected #" + userCount);
-    allSockets = allSockets.filter((x) => x != socket);
+    allSockets = allSockets.filter((x) => x.socket != socket);
   });
+  
 });
