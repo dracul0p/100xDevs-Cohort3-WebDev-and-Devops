@@ -14,8 +14,11 @@ const wss = new WebSocketServer({ port: 8080 });
 //   });
 // });
 
+
 // ping-pong with web socket
 wss.on("connection", function connection(socket) {
+  console.log("client conn");
+  
   socket.on("message", (data) => {
     const msg = data.toString().trim();
 
@@ -25,5 +28,6 @@ wss.on("connection", function connection(socket) {
     if (msg === "ping") {
       socket.send("pong");
     }
+    
   });
 });

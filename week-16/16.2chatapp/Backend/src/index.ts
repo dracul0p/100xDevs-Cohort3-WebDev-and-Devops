@@ -27,10 +27,18 @@ wss.on("connection", (socket) => {
   // Handle 'join' message type - when a user wants to join a room
   socket.on("message", (message) => {
     // Parse the incoming message from JSON string to object
-    // @ts-ignore is used to bypass TypeScript type checking for the JSON.parse
-    const parsedMessage = JSON.parse(message);
+
+    const parsedMessage = JSON.parse(message as unknown as string);
+
+    // {
+    // "type":"join",
+    // "payload":{
+    //     "roomId":"123"
+    // }
+    // }
 
     if (parsedMessage.type === "join") {
+      log("user joined room: " + parsedMessage.payload.roomId);
       // Add the new user to allSockets array with their socket and requested room
       allSockets.push({
         socket,
@@ -38,8 +46,16 @@ wss.on("connection", (socket) => {
       });
     }
 
+    // {
+    // "type":"chat",
+    // "payload":{
+    //     "message":"red"
+    // }
+    // }
+
     // Handle 'chat' message type - when a user sends a chat message
     if (parsedMessage.type === "chat") {
+      log("user wants to chat");
       // Find the room of the user who sent the message
       const user = allSockets.find((x) => x.socket === socket);
       if (!user) {
@@ -49,6 +65,7 @@ wss.on("connection", (socket) => {
 
       // Broadcast the message to all users in the same room
       for (let i = 0; i < allSockets.length; i++) {
+        // @ts-ignore
         if (allSockets[i].room === currentUserRoom) {
           allSockets[i]?.socket.send(parsedMessage.payload.message);
         }
@@ -61,5 +78,4 @@ wss.on("connection", (socket) => {
     console.log("user disconnected #" + userCount);
     allSockets = allSockets.filter((x) => x.socket != socket);
   });
-  
 });
